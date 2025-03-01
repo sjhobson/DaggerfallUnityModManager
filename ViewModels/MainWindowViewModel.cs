@@ -19,7 +19,7 @@ namespace DaggerfallUnityModManager.ViewModels
                 new("ex3", "qwerty", false, 2),
             };
 
-            Mods = new ObservableCollection<ModEntry>(exampleMods);
+            Mods = [.. exampleMods];
         }
     }
 }
