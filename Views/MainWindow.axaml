@@ -14,7 +14,30 @@
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+	
+	
+	<StackPanel>
+		<StackPanel Orientation="Horizontal">
+			<Button>Button1</Button>
+			<Button>Button2</Button>
+			<Button>Button3</Button>
+		</StackPanel>
+		<Button>Hello World</Button>
+		<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		<DataGrid Margin="20" ItemsSource="{Binding Mods}"
+                  IsReadOnly="False"
+                  CanUserReorderColumns="True"
+                  CanUserResizeColumns="True"
+                  CanUserSortColumns="False"
+                  GridLinesVisibility="All"
+                  BorderThickness="1" BorderBrush="Gray">
+			<DataGrid.Columns>
+				<DataGridCheckBoxColumn Header="Enabled" Binding="{Binding IsEnabled}"/>
+				<DataGridTextColumn Header="Load Priority" Binding="{Binding LoadPriority}"/>
+				<DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+				<DataGridTextColumn Header="Filename" Binding="{Binding Filename}"/>
+			</DataGrid.Columns>
+		</DataGrid>
+	</StackPanel>
 
 </Window>
